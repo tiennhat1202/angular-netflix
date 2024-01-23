@@ -1,0 +1,12 @@
+[
+    {
+        "email": "nguyentiennhat203.fpt@gmail.com" , 
+        "password": "12345678",
+        "username": "Tiến Nhất"
+    },
+    {
+        "email": "demo_account@gmail.com" , 
+        "password": "12345678",
+        "username": "Demo Account"
+    }
+]

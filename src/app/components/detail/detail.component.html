@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<div class="content-loading" *ngIf="!loading">
+    <div class="lds-ripple"><div></div><div></div></div>
+  </div>
+
+<div class="container-fluid d-flex align-items-center" [ngStyle]="{
+    'background':'linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, .4)), url(' + urlSrc + movieDetail.backdrop_path +')',
+    'backgroundRepeat': 'no-repeat',
+    'object-fit': 'cover',
+    'backgroundSize':'cover'
+  }" *ngIf="loading">
+    <div class="row content ps-5 pe-5">
+        <p class="detail-title col-12 col-sm-12 col-md-12 col-xl-12">{{movieDetail.title|| movieDetail.original_title |
+            uppercase}}</p>
+        <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+            <p class="detail-imdb-mins">
+                <span class="vote"><strong>Vote:</strong> {{movieDetail.vote_average}} (imdb)</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="mins"><strong>Time:</strong> {{movieDetail.runtime}} Mins</span>
+            </p>
+            <p class="detail-description"><strong>Overview:</strong>
+                {{movieDetail.overview}}
+            </p>
+            <div class="detail-info" >
+                <p [routerLink]="['/director', movieDirector.id]">
+                    <strong>Director by:</strong>
+                    {{movieDirector.name}}
+                </p>
+                <p>
+                    <strong>Genres:</strong>
+                    <span *ngFor="let genres of movieGenres">
+                        {{genres}},</span> ...
+                </p>
+                <a class="text-white" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    More...
+                </a>
+            </div>
+        </div>
+
+        <div class="row button pt-4">
+            <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+                <button class="btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <fa-icon class="pe-1" [icon]="faPlay"></fa-icon>
+                    Watch
+                </button>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+                <button class="btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <fa-icon class="pe-1" [icon]="faYoutube"></fa-icon>
+                    Trailer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="collapse" id="collapseExample">
+    <div class="more pt-4">
+        <div class="row ps-5 pe-5">
+            <p> <strong>Cast:</strong><a [routerLink]="['/person', cast.id]" *ngFor="let cast of movieCasts">
+                    {{cast.name}},
+                </a>...</p>
+            <p><strong>Budget:</strong> {{movieDetail.budget | currency}}</p>
+            <p><strong>Revenue:</strong> {{movieDetail.revenue | currency}}</p>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,45 @@
+<section class="vh-100" [ngStyle]="{
+    'background':'url(../../assets/images/login-bg.jpeg)',
+    'backgroundSize':'cover'}">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <form novalidate (ngSubmit)="onSubmit()" [formGroup]="formLogin" class="card-body p-5"
+                    [ngStyle]="{'background-color':'black', 'opacity':'0.8', 'color':'white'}">
+                    <h3 class="">Login</h3>
+                    <div class="form-control mb-1">
+                        <label class="mb-2" for="Email">Email</label>
+                        <input id="Email" type="email" required="required" formControlName="email" [(ngModel)]="emailDemo">
+                        <span [ngStyle]="{'color': 'red' , 'padding-top': '10px','font-weight': '500'}" *ngIf="formLogin.get('email')?.errors?.required && formLogin.get('email')?.touched">Email
+                            is required</span>
+                        <span [ngStyle]="{'color': 'red' , 'padding-top': '10px','font-weight': '500'}" *ngIf="formLogin.get('email')?.errors?.email">Email is not valid</span>
+                    </div>
+                    <div class="form-control mb-3">
+                        <label class="mb-2" for="Password">Password</label>
+                        <input id="Password" type="password" required="required" formControlName="password" [(ngModel)]="passwordDemo">
+                        <span [ngStyle]="{'color': 'red' , 'padding-top': '10px','font-weight': '500'}" *ngIf="formLogin.get('password')?.errors?.minlength">Password more than 8 digits
+                        </span>
+                    </div>
+                    <div *ngIf="errorMess">
+                        {{errorMess}}
+                    </div>
+                    <div class="form-control mb-1 mt-3">
+                        <button type="submit" [disabled]="formLogin.invalid">Sign in</button>
+                    </div>
+                    <div class="form-control">
+                        <div>
+                            <input type="checkbox">
+                            <label for="">&ensp;Remember me!</label>
+                            <a class="float-end" (click)="getAccountDemo()">Try Account</a>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <p> New to Netflix?&ensp;<a href="#">Sign up now.</a></p>
+                        <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn
+                                more.</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

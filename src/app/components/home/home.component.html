@@ -1,0 +1,133 @@
+<div class="nav-content position-relative bg-dark">
+  <video autoplay loop>
+    <source src="../../assets/videos/video.mp4" type="video/mp4">
+  </video>
+  <nav class="navbar navbar-expand-lg position-fixed top-0 start-0 ">
+    <div class="container-fluid">
+      <div class="netflix-row">
+        <div class="left d-flex align-items-center">
+          <a class="navbar-brand" [routerLink]="['home']">
+            <img src="../../assets/images/logo.png" alt="">
+          </a>
+          <div class="netflix-nav">
+            <section>
+              <button class="me-2" [routerLink]="['home']">Home</button>
+              <!-- <button class="me-2">TV Shows</button> -->
+              <button class="me-2" [routerLink]="['movies']">Movies</button>
+              <!-- <button class="me-2">News & Popular</button> -->
+              <button class="me-2">My List</button>
+            </section>
+          </div>
+        </div>
+        <div class="login">
+          <!-- <fa-icon class="me-4" [icon]="faSearch"></fa-icon>
+                  <fa-icon class="me-4" [icon]="faHeart"></fa-icon> -->
+          <div *ngIf="username">
+            <a class="username" [routerLink]="['/profile']">Hi, {{username}}</a>
+            <!-- <button [routerLink]="['/home']" (click)="logOut()">Logout</button> -->
+            <fa-icon class="ps-1" [routerLink]="['/home']" (click)="logOut()" [icon]="faArrowRightFromBracket"></fa-icon>
+          </div>
+          
+          <div *ngIf="!username">
+            <button  class="btn" [routerLink]="['login']">LOGIN</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="navbar-section">
+  <img src="../../assets/images/img_header.webp" alt="">
+  <div class="navbar-btn d-flex justify-content-start align-items-center mt-3">
+    <button class="btn btn-light m-2">
+      <i>
+        <fa-icon class="pe-1" [icon]="faPlay"></fa-icon>
+      </i>
+      Play Now</button>
+    <button class="btn btn-secondary m-2">
+      <i>
+        <fa-icon class="pe-1" [icon]="faInfoCircle"></fa-icon>
+      </i>
+      More Info</button>
+  </div>
+</div>
+<div class="movies pb-5">
+  <div class="container">
+
+    <div class="movies-menu pt-5 mb-4">
+      <h1>POPULAR MOVIES</h1>
+      <!-- <div class="dropdown">
+          <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Category</a></li>
+            <li><a class="dropdown-item" href="#">Category</a></li>
+            <li><a class="dropdown-item" href="#">Category</a></li>
+          </ul>
+        </div> -->
+    </div>
+
+    <!-- the popular movie -->
+    <div class="row mt-3">
+      <h4 class="netflix-category-title">Top Trending</h4>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6 col-lg-3 col-md-4 col-sm-4" *ngFor="let movie of topTrending ; let i = index">
+        <div class="card" [routerLink]="['movie', movie.id]" *ngIf="i < 8">
+          <img src="{{srcImg + movie.poster_path}}">
+          <div class="card-detail ps-2">
+            <p class="text-center pt-2">
+              <a class="pe-2" href="">
+                <fa-icon class="pe-2" [icon]="faCirclePlay" title="Play"></fa-icon>
+              </a>
+              <a class="pe-2" href="">
+                <fa-icon class="pe-2" [icon]="faHeart" title="Favorite"></fa-icon>
+              </a>
+              <a class="pe-2" href="">
+                <fa-icon class="pe-2" [icon]="faCircleInfo" title="Details"></fa-icon>
+              </a>
+            </p>
+            <p class="title" [routerLink]="['movie', movie.id]">Name: {{movie.title}}</p>
+            <p class="pb-2">Release Date: {{movie.release_date | date}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- the popular movie end-->
+
+
+    <!-- the heghest rate movie -->
+    <div class="row mt-3">
+      <h4 class="netflix-category-title">The Highest Rated Movies</h4>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6 col-lg-3 col-md-4 col-sm-4" *ngFor="let movie of topRatedMovie ;  let i = index">
+        <div class="card" [routerLink]="['movie', movie.id]" *ngIf="i < 8">
+          <img src="{{srcImg + movie.poster_path}}">
+          <div class="card-detail ps-2">
+            <p class="text-center pt-2">
+              <a class="pe-2" href="">
+                <fa-icon class="pe-2" [icon]="faCirclePlay" title="Play"></fa-icon>
+              </a>
+              <a class="pe-2" href="">
+                <fa-icon class="pe-2" [icon]="faHeart" title="Favorite"></fa-icon>
+              </a>
+              <a class="pe-2" href="">
+                <fa-icon class="pe-2" [icon]="faCircleInfo" title="Details"></fa-icon>
+              </a>
+            </p>
+            <p class="title" [routerLink]="['movie', movie.id]">Name: {{movie.title}}</p>
+            <p class="pb-2">Release Date: {{movie.release_date | date}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- the heghest rate movie end-->
+  </div>
+</div>
+
+<app-footer></app-footer>

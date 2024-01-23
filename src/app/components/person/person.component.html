@@ -1,0 +1,59 @@
+<div class="container-fuild">
+    <app-navbar></app-navbar>
+    <div class="content-loading" *ngIf="!loading">
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div class="content" *ngIf="loading">
+        <div class="row ps-5 pe-5 pb-5 border-bottom">
+            <div class="row ps-5 pe-5 pt-2 pb-3 related d-flex justify-content-center text-decoration-underline">
+                Information about {{infoPerson.name}}</div>
+            <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center justify-content-center ">
+                <img src="{{urlSrc+infoPerson.profile_path}}" alt="" [ngStyle]="{'width':'16vw', 'height':'20vw'}">
+            </div>
+            <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center">
+                <div>
+                    <p><strong>Name:</strong> {{infoPerson.name}}</p>
+                    <p><strong>Gender:</strong> {{infoPerson.gender | genders}}</p>
+                    <p><strong>Birthday:</strong> {{infoPerson.birthday | date}}</p>
+                    <p><strong>Department:</strong> {{infoPerson.known_for_department}}</p>
+                    <p><strong>Place of birth:</strong> {{infoPerson.place_of_birth}}</p>
+                    <p><strong>Popularity:</strong> {{infoPerson.popularity}}</p>
+                    <p><strong>Homepage:</strong>
+                        <a [ngStyle]="{'text-decoration': 'none', 'color': 'white'}"
+                            href="{{infoPerson.homepage}}">&ensp;{{infoPerson.name}}
+                        </a>
+                    </p>
+                </div>
+                <!-- <p><strong>Biography</strong>{{infoPerson.biography}}</p> -->
+            </div>
+        </div>
+        <div class="row ps-5 pe-5 pt-2 related d-flex justify-content-center">Feature</div>
+        <div class="row ps-5 pe-5 pb-5">
+            <div class="col-sm-6 col-md-3 col-lg-2" *ngFor="let movie of moreMovieOfPerson ; let i = index">
+                <div class="card" *ngIf=" i < 20">
+                    <img src="{{urlSrc + movie.poster_path}}">
+                    <div class="card-detail ps-2">
+                        <p class="text-center pt-2">
+                            <a class="pe-2" href="">
+                                <fa-icon class="pe-2" [icon]="faCirclePlay" title="Play"></fa-icon>
+                            </a>
+                            <a class="pe-2" href="">
+                                <fa-icon class="pe-2" [icon]="faHeart" title="Favorite"></fa-icon>
+                            </a>
+                            <a class="pe-2" href="">
+                                <fa-icon class="pe-2" [icon]="faCircleInfo" title="Details"></fa-icon>
+                            </a>
+                        </p>
+                        <p class="title" [routerLink]="">Name: {{movie.title}}</p>
+                        <p>Vote: {{movie.vote_average}}/10</p>
+                        <p class="pb-2">Release Date: {{movie.release_date | date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

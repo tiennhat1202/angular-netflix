@@ -1,0 +1,90 @@
+.container-fluid {
+    padding-top: 5rem;
+    color: white;
+    // background: linear-gradient(to left top, rgb(87, 2, 2), black);
+    background-color: #141414;
+
+    .container {
+        .row {
+            input{
+                width: 50%;
+                border-radius: 8px;
+            }
+            .card {
+                width: 100%;
+                padding: 1rem;
+                background-color: transparent;
+                transition: 0.5s ease-out;
+                position: relative;
+                border: none !important;
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 2px solid black;
+                }
+
+                .card-detail {
+                    font-size: 0.75rem;
+                    position: absolute;
+                    bottom: 1rem;
+                    left: 1rem;
+                    right: 1rem;
+                    border-radius: 0 0 10px 10px;
+                    background-color: #000000;
+                    opacity: 0;
+                    transition: 0.3s ease-out;
+
+                    fa-icon,
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.5rem;
+                    }
+                }
+
+
+            }
+
+            .card:hover {
+                img {
+                    box-shadow: 0 0 8px 4px red;
+                }
+
+
+                .card-detail {
+                    font-size: 0.75rem;
+                    transition: 0.5s ease;
+                    opacity: 1;
+                    transform: translateY(-0px);
+                    background: linear-gradient(to left top, rgb(87, 2, 2, 0.8), rgba(black, 0.8));
+
+                    .title:hover {
+                        cursor: pointer;
+                    }
+
+                    fa-icon,
+                    a {
+                        color: white;
+                        opacity: 0.8;
+                        font-size: 1.5rem;
+                    }
+
+                    a:hover {
+                        color: red;
+                        opacity: 1;
+                        text-decoration: underline;
+
+                        fa-icon {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .netflix-category-title {
+        color: white;
+    }
+}

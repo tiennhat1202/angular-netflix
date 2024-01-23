@@ -1,0 +1,36 @@
+<div class="nav-content position-relative bg-dark ">
+    <nav class="navbar navbar-expand-lg position-fixed top-0 start-0 ">
+        <div class="container-fluid">
+            <div class="netflix-row">
+                <div class="left d-flex align-items-center">
+                    <a class="navbar-brand" [routerLink]="['home']">
+                        <img src="../../assets/images/logo.png" alt="">
+                    </a>
+                    <div class="netflix-nav">
+                        <section>
+                            <button class="me-2" [routerLink]="['home']">Home</button>
+                            <!-- <button class="me-2">TV Shows</button> -->
+                            <button class="me-2" [routerLink]="['movies']">Movies</button>
+                            <!-- <button class="me-2">News & Popular</button> -->
+                            <button class="me-2">My List</button>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="login">
+                    <div *ngIf="username">
+                        <fa-icon class="me-4" [icon]="faHeart"></fa-icon>
+                        <a class="username" [routerLink]="['/profile']">Hi, {{username}}</a>
+                        <!-- <button [routerLink]="['/home']" (click)="logOut()">Logout</button> -->
+                        <fa-icon class="ps-1" [routerLink]="['/home']" (click)="logOut()"
+                            [icon]="faArrowRightFromBracket"></fa-icon>
+                    </div>
+
+                    <div *ngIf="!username">
+                        <button class="btn" [routerLink]="['login']">LOGIN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

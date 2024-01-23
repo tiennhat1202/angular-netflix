@@ -1,0 +1,212 @@
+.nav-content {
+    video {
+        margin: 0px;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain;
+    }
+
+    .navbar {
+        width: 100%;
+        z-index: 2;
+
+        .container-fluid {
+            .netflix-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between !important;
+                align-items: center;
+
+                .navbar-brand {
+                    img {
+                        width: 8vw;
+                    }
+
+                    padding-left: 57px;
+                    padding-right: 57px;
+                }
+
+                .netflix-nav {
+                    display: block;
+                    align-items: center;
+
+                    button {
+                        background-color: transparent;
+                        color: white;
+                        border: none;
+                        font-size: 13px;
+                    }
+                }
+
+                .login {
+                    padding-right: 57px;
+
+                    .btn {
+                        background-color: red;
+                        color: white;
+                        border: none;
+
+                    }
+
+                    .username{
+                        color: white;
+                        font-weight: bolder;
+                    }
+                }
+
+                fa-icon {
+                    color: white;
+                }
+            }
+        }
+
+    }
+
+    .navbar_scroll {
+        background-color: black !important;
+        opacity: 1;
+    }
+}
+
+.navbar-section {
+    width: 20vw;
+    position: absolute;
+    top: 14vw;
+    left: 10vw;
+    z-index: 1;
+
+    img {
+        width: 20vw;
+    }
+
+    .navbar-btn {
+        width: 20vw;
+
+        .btn-light,
+        .btn-secondary {
+            width: 10vw;
+            height: 2.5vw;
+            font-size: 1vw;
+        }
+    }
+}
+
+.movies {
+    color: white;
+    // background: linear-gradient(to left top, rgb(87, 2, 2), black);
+    background-color: #141414;
+
+
+    .movies-menu {
+        display: flex;
+
+        .dropdown {
+            display: flex;
+            align-items: center;
+
+            button {
+                background-color: #000000;
+                color: white;
+                border-radius: 0;
+                font-size: 1rem;
+                margin-left: 5vw;
+                align-items: center;
+            }
+
+            .dropdown-menu {
+                background-color: #000000;
+                border-radius: 0;
+
+                a {
+                    color: white;
+                }
+
+                a:hover {
+                    background-color: #000000;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+
+    .container {
+        .row {
+            .card {
+                width: 100%;
+                padding: 1rem;
+                background-color: transparent;
+                transition: 0.5s ease-out;
+                position: relative;
+                border: none !important;
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                    border: 2px solid black;
+                }
+
+                .card-detail {
+                    font-size: 0.75rem;
+                    position: absolute;
+                    bottom: 1rem;
+                    left: 1rem;
+                    right: 1rem;
+                    border-radius: 0 0 10px 10px;
+                    background-color: #000000;
+                    opacity: 0;
+                    transition: 0.3s ease-out;
+
+                    fa-icon,
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-size: 1.5rem;
+                    }
+                }
+
+
+            }
+
+            .card:hover {
+                img {
+                    box-shadow: 0 0 8px 4px red;
+                }
+
+
+                .card-detail {
+                    font-size: 0.75rem;
+                    transition: 0.5s ease;
+                    opacity: 1;
+                    transform: translateY(-0px);
+                    background: linear-gradient(to left top, rgb(87, 2, 2, 0.8), rgba(black, 0.8));
+
+                    .title:hover {
+                        cursor: pointer;
+                    }
+
+                    fa-icon,
+                    a {
+                        color: white;
+                        opacity: 0.8;
+                        font-size: 1.5rem;
+                    }
+
+                    a:hover {
+                        color: red;
+                        opacity: 1;
+                        text-decoration: underline;
+
+                        fa-icon {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .netflix-category-title {
+        color: white;
+    }
+}

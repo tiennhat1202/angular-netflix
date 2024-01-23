@@ -1,0 +1,63 @@
+.nav-content {
+   
+    .navbar {
+        width: 100%;
+        z-index: 1;
+
+        .container-fluid {
+            .netflix-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between !important;
+                align-items: center;
+
+                .navbar-brand {
+                    img {
+                        width: 8vw;
+                    }
+
+                    padding-left: 57px;
+                    padding-right: 57px;
+                }
+
+                .netflix-nav {
+                    display: block;
+                    align-items: center;
+
+                    button {
+                        background-color: transparent;
+                        color: white;
+                        border: none;
+                        font-size: 13px;
+                    }
+                }
+                .login {
+                    padding-right: 57px;
+
+                    .btn {
+                        background-color: red;
+                        color: white;
+                        border: none;
+
+                    }
+
+                    .username{
+                        color: white;
+                        font-weight: bolder;
+                    }
+                }
+
+                fa-icon {
+                    color: white;
+                }
+            }
+        }
+
+    }
+
+    .navbar_scroll {
+        background-color: black !important;
+        opacity: 1;
+    }
+    
+}

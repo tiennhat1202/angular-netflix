@@ -1,0 +1,16 @@
+footer {
+    // background: linear-gradient(to right bottom, rgb(87, 2, 2), black);
+    background-color: #141414;
+    color: white;
+    font-size: 24px;
+    a{
+        font-size: 12px;
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    span{
+        font-size: 12px;
+    }
+}
